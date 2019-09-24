@@ -15,13 +15,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var onOff: UISwitch!
     @IBOutlet weak var segmented: UISegmentedControl!
+    
+    var secret: Secret!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.value = 0.0
         sliderLabel.text = "\(slider.value)"
         onOff.isOn = false
         segmented.selectedSegmentIndex = 0
-        
+        secret = Secret.getSavedSecret()
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +35,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func checkAction(_ sender: Any) {
+        if secret.checkCode(slider: Int(slider.value * 10.0), isOn: onOff.isOn, segment: segmented.selectedSegmentIndex) {
+            print("correct!")
+        } else {
+            print("incorrect!")
+        }
     }
 }
 
