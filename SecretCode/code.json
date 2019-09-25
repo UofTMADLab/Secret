@@ -1,5 +1,6 @@
 {
     "sliderValue": 3,
     "switchIsOn": false,
-    "segmentValue": 0
+    "segmentValue": 0,
+    "secretMessage": "Hey smarty pants!"
 }

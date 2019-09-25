@@ -12,12 +12,12 @@ struct Secret : Codable {
     let sliderValue: Int
     let switchIsOn: Bool
     let segmentValue: Int
-    
-    func checkCode(slider: Int, isOn: Bool, segment: Int) -> Bool {
+    private let secretMessage: String
+    func checkCode(slider: Int, isOn: Bool, segment: Int) -> String? {
         if slider == sliderValue && isOn == switchIsOn && segment == segmentValue {
-            return true
+            return secretMessage
         } else {
-            return false
+            return nil
         }
     }
     
